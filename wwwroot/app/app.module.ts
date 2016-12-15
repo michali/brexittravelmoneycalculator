@@ -4,11 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent }  from './app.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { routing, appRoutingProviders } from './app.routing';
-import { CharacterService } from './shared/character.service';
+import { HomeComponent }  from './home/home.component';
 
+import { routing, appRoutingProviders } from './app.routing';
 @NgModule({
     imports: [
         BrowserModule,
@@ -17,13 +15,11 @@ import { CharacterService } from './shared/character.service';
         routing
     ],
     providers: [
-        appRoutingProviders,
-        CharacterService
+        appRoutingProviders
     ],
     declarations: [
         AppComponent,
-        HomeComponent,
-        AboutComponent
+        HomeComponent
     ],
     bootstrap: [AppComponent]
 })

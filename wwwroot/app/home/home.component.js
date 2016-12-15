@@ -9,22 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var character_service_1 = require('../shared/character.service');
 var HomeComponent = (function () {
-    function HomeComponent(characterService) {
-        this.characterService = characterService;
+    function HomeComponent() {
     }
-    HomeComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.characterService.getCharacters()
-            .subscribe(function (characters) { return _this.characters = characters; });
-    };
     HomeComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             templateUrl: 'home.component.html'
         }), 
-        __metadata('design:paramtypes', [character_service_1.CharacterService])
+        __metadata('design:paramtypes', [])
     ], HomeComponent);
     return HomeComponent;
 }());

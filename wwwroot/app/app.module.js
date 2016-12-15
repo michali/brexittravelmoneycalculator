@@ -14,9 +14,7 @@ var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var home_component_1 = require('./home/home.component');
-var about_component_1 = require('./about/about.component');
 var app_routing_1 = require('./app.routing');
-var character_service_1 = require('./shared/character.service');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -29,13 +27,11 @@ var AppModule = (function () {
                 app_routing_1.routing
             ],
             providers: [
-                app_routing_1.appRoutingProviders,
-                character_service_1.CharacterService
+                app_routing_1.appRoutingProviders
             ],
             declarations: [
                 app_component_1.AppComponent,
-                home_component_1.HomeComponent,
-                about_component_1.AboutComponent
+                home_component_1.HomeComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

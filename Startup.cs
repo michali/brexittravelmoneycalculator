@@ -35,9 +35,19 @@ namespace BrexitTravelMoneyCalculatorWeb
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseStaticFiles();
-            app.UseDefaultFiles();
+            app.Use(async (context, next) => 
+            { 
+                await next(); 
+                if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value)) 
+                { 
+                    context.Request.Path = "/index.html"; 
+                    await next(); 
+                } 
+            });
 
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+            
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "node_modules")),
@@ -46,7 +56,9 @@ namespace BrexitTravelMoneyCalculatorWeb
 
             app.UseMvc(routes =>
             {
-                routes.MapSpaFallbackRoute("spa-fallback", new { controller = "home", action = "index" });
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
