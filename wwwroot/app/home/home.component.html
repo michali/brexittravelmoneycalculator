@@ -1,1 +1,15 @@
-Talk
+<h2 class="lead">Here you'll find how far your pound will go after the EU Referendum of June 23 when going on holidays abroad.</h2>
+<p class="text-center">Ready to start?</p>
+<form *ngIf="countries && countries.length">
+    <div class="inside-panel form-group">
+        <label for="amount">How much money are you converting, in sterling?</label>
+        <input type="number" min="0" class="form-control" id="amount" required>
+    </div>
+    <div class="inside-panel form-group">
+        <label for="country">Where are you going to?</label>
+        <select class="form-control" id="country" required>
+            <option>Select a country</option>
+            <option *ngFor="let country of countries" [value]="country.id">{{country.name}}</option>
+        </select>
+    </div>
+</form>

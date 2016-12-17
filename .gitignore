@@ -28,8 +28,9 @@ bld/
 #wwwroot/
 
 **/wwwroot/lib
-**/wwwroot/*.js
-**/wwwroot/*.map
+
+**/app/**/*.js
+**/app/**/*.map
 
 
 # MSTest test Results
