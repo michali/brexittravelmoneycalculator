@@ -14,4 +14,8 @@ export class HomeComponent implements OnInit{
         this.countries.push({id:1, name:"Sweden"});
         this.countries.push({id:2, name:"Republic of Ireland"});       
     }
+
+    onSubmit() : void {
+        alert('')
+    }
 }
