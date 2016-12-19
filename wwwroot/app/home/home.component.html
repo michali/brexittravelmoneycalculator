@@ -1,16 +1,21 @@
 <h2 class="lead">Here you'll find how far your pound will go after the EU Referendum of June 23 when going on holidays abroad.</h2>
 <p class="text-center">Ready to start?</p>
-<form class="inside-panel" (ngSubmit)="onSubmit()" #f="ngForm" *ngIf="countries && countries.length">
+<form class="inside-panel" (ngSubmit)="onSubmit(f.value)" #f="ngForm" *ngIf="countries && countries.length" novalidate>
     <div class="form-group">
         <label for="amount">How much money are you converting, in sterling?</label>
-        <input type="number" (ngModel)="model.amount" min="0" class="form-control" id="amount" required>
+        <input type="number" (ngModel)="model.amount" min="0" class="form-control" 
+        id="amount" name="amount" #amount="ngModel" required>
+        <div [hidden]="amount.valid || amount.pristine"
+             class="alert alert-danger">
+          Amount is required
+        </div>
     </div>
     <div class="form-group">
         <label for="country">Where are you going to?</label>
-        <select class="form-control"  (ngModel)="model.country" id="country" required>
-            <option>Select a country</option>
+        <select class="form-control" (ngModel)="model.country" id="country" name="country" required>
+            <option selected>Select a country</option>
             <option *ngFor="let country of countries" [value]="country.id">{{country.name}}</option>
         </select>
     </div>
-    <button type="submit" class="btn btn-default" [disabled]="!f.form.valid">Submit</button>
+    <button type="submit" class="btn btn-default" [disabled]="!f.form.valid">Show me</button>
 </form>

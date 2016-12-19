@@ -38,6 +38,19 @@ main {
     color: rgba(0, 0, 0, 0.87);
 }
 
+@media (max-width: 550px) {
+    .inside-panel {
+        width: 100%;
+    }
+}
+
+@media (min-width: 551px) {
+    .inside-panel {
+        width: 50%;
+    }
+}
+
 .inside-panel {
-    width: 50%;
+    float: none;
+    margin: 0 auto;
 }
