@@ -8,14 +8,16 @@ import { ICountry } from './country';
 export class HomeComponent implements OnInit{ 
 
     countries: ICountry[]
+    selectedCountryValue: number = -1;
 
     ngOnInit(): void {
         this.countries = [];
+        this.countries.push({id:-1, name: "Please select a country"})
         this.countries.push({id:1, name:"Sweden"});
         this.countries.push({id:2, name:"Republic of Ireland"});       
     }
 
     onSubmit(form:any) : void {
-        alert(form.amount);
+        alert(form.country);
     }
 }
