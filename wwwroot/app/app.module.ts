@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import { AppComponent }  from './app.component';
 import { HomeComponent }  from './home/home.component';
 
+import { DropdownInvalidValueDirective } from './dropdown-invalidvalue.directive';
+
 import { routing, appRoutingProviders } from './app.routing';
 @NgModule({
     imports: [
@@ -19,7 +21,8 @@ import { routing, appRoutingProviders } from './app.routing';
     ],
     declarations: [
         AppComponent,
-        HomeComponent
+        HomeComponent,
+        DropdownInvalidValueDirective
     ],
     bootstrap: [AppComponent]
 })
