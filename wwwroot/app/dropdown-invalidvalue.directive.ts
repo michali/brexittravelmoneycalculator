@@ -10,8 +10,10 @@ import { AbstractControl, ValidatorFn, Validator, FormControl, NG_VALIDATORS } f
 
 export class DropdownInvalidValueDirective implements Validator {
 
+    constructor( @Attribute('ddInvalidValue') public ddInvalidValue: any) {}
+
     validate(c: AbstractControl) : { [key: string]: any }  {
-        if (c.get()) {
+        if (c.value == this.ddInvalidValue) {
             return {
                 ddInvalidValue: {value:false}
             };
