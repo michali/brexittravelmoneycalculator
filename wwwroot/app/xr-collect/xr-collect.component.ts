@@ -3,9 +3,9 @@ import { ICountry } from './country';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'home.component.html'
+    templateUrl: 'xr-collect.component.html'
 })
-export class HomeComponent implements OnInit{ 
+export class XrCollectComponent implements OnInit{ 
 
     countries: ICountry[]
     selectedCountryValue: number = -1;

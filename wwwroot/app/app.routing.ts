@@ -1,8 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent }  from './home/home.component';
+import { XrCollectComponent }  from './xr-collect/xr-collect.component';
 
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent }
+    { path: '', component: XrCollectComponent }
 ];
 
 export const appRoutingProviders: any[] = [

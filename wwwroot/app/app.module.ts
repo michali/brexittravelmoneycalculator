@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent }  from './app.component';
-import { HomeComponent }  from './home/home.component';
+import { XrCollectComponent }  from './xr-collect/xr-collect.component';
 
 import { DropdownInvalidValueDirective } from './dropdown-invalidvalue.directive';
 
@@ -21,7 +21,7 @@ import { routing, appRoutingProviders } from './app.routing';
     ],
     declarations: [
         AppComponent,
-        HomeComponent,
+        XrCollectComponent,
         DropdownInvalidValueDirective
     ],
     bootstrap: [AppComponent]
