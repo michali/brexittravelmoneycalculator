@@ -29,6 +29,7 @@ bld/
 
 **/wwwroot/lib
 
+**/app/**/*.js
 **/app/**.js
 **/*.js.map
 
