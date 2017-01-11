@@ -11,9 +11,9 @@
         </div>
     </div>
     <div *ngIf="countries && countries.length" class="form-group">
-        <label for="country">Where are you going to?</label>
+        <label for="countryId">Where are you going to?</label>
         <select class="form-control" [(ngModel)]="selectedCountryValue" 
-        id="country" name="country" #country="ngModel" ddInvalidValue="-1">
+        id="countryId" name="countryId" #country="ngModel" ddInvalidValue="-1">
             <option *ngFor="let country of countries" [value]="country.id">{{country.name}}</option>
         </select>
         <div [hidden]="(country.valid || country.pristine)" class="alert alert-danger">

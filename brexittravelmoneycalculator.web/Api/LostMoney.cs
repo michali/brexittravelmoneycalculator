@@ -4,7 +4,7 @@ namespace BrexitTravelMoneyCalculatorWeb.Api
 {
     [Route("api/[controller]")]
     [Produces("application/json")]
-    public class CharactersController : Controller
+    public class LostMoneyController : Controller
     {
         [HttpGet]
         [Produces(typeof(string[]))]

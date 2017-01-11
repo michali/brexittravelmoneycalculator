@@ -21,6 +21,6 @@ export class XrCollectComponent implements OnInit{
     }
 
     onSubmit(form:any) : void {
-        this._router.navigate(['verdict']);
+        this._router.navigate(['verdict', {amount: form.amount, countryId: form.countryId}]);
     }
 }
