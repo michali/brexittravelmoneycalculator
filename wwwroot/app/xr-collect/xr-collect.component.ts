@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ICountry } from './country';
 
 @Component({
@@ -10,6 +11,8 @@ export class XrCollectComponent implements OnInit{
     countries: ICountry[]
     selectedCountryValue: number = -1;
 
+    constructor(private _router: Router){}
+
     ngOnInit(): void {
         this.countries = [];
         this.countries.push({id:-1, name: "Please select a country"})
@@ -18,6 +21,6 @@ export class XrCollectComponent implements OnInit{
     }
 
     onSubmit(form:any) : void {
-        alert(form.country);
+        this._router.navigate(['verdict']);
     }
 }

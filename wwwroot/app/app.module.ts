@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent }  from './app.component';
 import { XrCollectComponent }  from './xr-collect/xr-collect.component';
+import { VerdictComponent }  from './verdict/verdict.component';
 
 import { DropdownInvalidValueDirective } from './dropdown-invalidvalue.directive';
 
@@ -22,6 +23,7 @@ import { routing, appRoutingProviders } from './app.routing';
     declarations: [
         AppComponent,
         XrCollectComponent,
+        VerdictComponent,
         DropdownInvalidValueDirective
     ],
     bootstrap: [AppComponent]
