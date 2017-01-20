@@ -1,16 +1,39 @@
+// {
+//     "version": "0.1.0",
+//     "command": "dotnet",
+//     "isShellCommand": true,
+//     "args": [],
+//     "tasks": [
+//         {
+//             "taskName": "build",
+//             "args": [
+//                 "${workspaceRoot}/project.json"
+//             ],
+//             "isBuildCommand": true,
+//             "problemMatcher": "$msCompile"
+//         }
+//     ]
+// }
+
 {
     "version": "0.1.0",
-    "command": "dotnet",
+    "command": "sh",
+    "args": ["-c"],
     "isShellCommand": true,
-    "args": [],
+    "showOutput": "always",
+    "suppressTaskName": true,
     "tasks": [
         {
-            "taskName": "build",
-            "args": [
-                "${workspaceRoot}/project.json"
-            ],
+            "taskName": "dotnet-build",
+            "args": ["dotnet build", "${workspaceRoot}/project.json"],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"
+        },
+        {
+            "taskName": "tsc",
+            "args": ["tsc", "--target", "ES5",
+            "--sourceMap",
+            "--watch"]
         }
     ]
 }
