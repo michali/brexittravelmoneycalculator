@@ -4,4 +4,6 @@ import { Component } from '@angular/core';
     moduleId: module.id,
     templateUrl: 'verdict.component.html'
 })
-export class VerdictComponent { }
+export class VerdictComponent {
+    
+}
