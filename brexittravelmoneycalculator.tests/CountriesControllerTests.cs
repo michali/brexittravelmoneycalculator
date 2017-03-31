@@ -1,6 +1,7 @@
 using System;
-using BrexitTravelMoneyCalculatorWeb.Controllers;
+using BrexitTravelMoneyCalculatorWeb.Api;
 using Xunit;
+using Microsoft.AspNetCore.Mvc.Core;
 
 namespace Brexittravelmoneycalculator.Tests
 {
@@ -11,9 +12,9 @@ namespace Brexittravelmoneycalculator.Tests
         {
             var controller = new CountriesController();
 
-            var result = controller.GetAll();
+            var result = controller.Get();
 
-
+            Assert.IsType<OkResult>(result);
         }
     }
 }

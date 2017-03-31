@@ -7,20 +7,23 @@ namespace BrexitTravelMoneyCalculatorWeb.Api
     public class CountriesController : Controller
     {
         [HttpGet]
-        [Produces(typeof(string[]))]
         public IActionResult Get()
         {
             return Ok(new[] {
-                "Gollum",
-                "Gandalf",
-                "Legolas",
-                "Aragorn",
-                "Frodo Baggins",
-                "Bilbo Baggins",
-                "Saruman",
-                "Gimli",
-                "Galadriel"
+                new Country{
+                    Code="SE",
+                    Name="Sweden"
+                },
+                new Country{
+                    Code="PT",
+                    Name="Portugal"
+                }
             });
         }
+    }
+
+    public class Country{
+        public string Name;
+        public string Code;
     }
 }
