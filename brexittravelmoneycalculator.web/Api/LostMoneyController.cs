@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace BrexitTravelMoneyCalculatorWeb.Api
+namespace BrexitTravelMoneyCalculator.Web.Api
 {
     [Route("api/[controller]")]
     [Produces("application/json")]
