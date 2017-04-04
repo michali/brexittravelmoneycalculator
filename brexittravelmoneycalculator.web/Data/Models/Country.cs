@@ -1,4 +1,4 @@
-namespace BrexitTravelMoneyCalculator.Web.Models
+namespace BrexitTravelMoneyCalculator.Web.Data.Models
 {
     public class Country
     {

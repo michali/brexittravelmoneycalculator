@@ -1,6 +1,6 @@
 using BrexitTravelMoneyCalculator.Web.Api;
 using BrexitTravelMoneyCalculator.Web.Data;
-using BrexitTravelMoneyCalculator.Web.Models;
+using BrexitTravelMoneyCalculator.Web.Data.Models;
 using Xunit;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
