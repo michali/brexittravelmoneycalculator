@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using BrexitTravelMoneyCalculator.Web.Models;
 using BrexitTravelMoneyCalculator.Web.Data;
 using System.Linq;
 
