@@ -1,8 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Security;
+using Microsoft.Extensions.Configuration;
 
-namespace brexittravelmoneycalculator.data
+namespace BrexitTravelMoneyCalculator.Data
 {
     internal class Conf
     {

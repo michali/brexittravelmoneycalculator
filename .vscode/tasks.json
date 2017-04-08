@@ -7,7 +7,7 @@
         {
             "taskName": "build",
             "args": [
-                "${workspaceRoot}/brexittravelmoneycalculator.tests/brexittravelmoneycalculator.tests.csproj"
+                "${workspaceRoot}/BrexitTravelMoneyCalculator.Tests/BrexitTravelMoneyCalculator.Tests.csproj"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"

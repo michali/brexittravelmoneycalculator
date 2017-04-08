@@ -9,7 +9,7 @@ namespace BrexitTravelMoneyCalculator.Web.Data
     {
         public object[] GetCountries()
         {
-            
+            return new object[]{};
         }
     }
 }

@@ -1,7 +1,7 @@
 using System;
 using Newtonsoft.Json;
 
-namespace brexittravelmoneycalculator.data.Models
+namespace BrexitTravelMoneyCalculator.Data.Models
 {
     public class Metadata : IDocument
     {

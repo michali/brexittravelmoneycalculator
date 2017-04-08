@@ -1,4 +1,4 @@
-namespace brexittravelmoneycalculator.data.Models
+namespace BrexitTravelMoneyCalculator.Data.Models
 {
     public interface IDocument
     {

@@ -6,7 +6,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}/brexittravelmoneycalculator.tests/bin/Debug/netcoreapp1.1/brexittravelmoneycalculator.tests.dll",
+            "program": "${workspaceRoot}/BrexitTravelMoneyCalculator.Tests/bin/Debug/netcoreapp1.1/BrexitTravelMoneyCalculator.Tests.dll",
             "args": [],
             "cwd": "${workspaceRoot}",
             "externalConsole": false,

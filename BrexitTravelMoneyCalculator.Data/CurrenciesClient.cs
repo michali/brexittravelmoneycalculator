@@ -4,10 +4,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
-using brexittravelmoneycalculator.data.Models;
+using BrexitTravelMoneyCalculator.Data.Models;
 using System.Net;
 
-namespace brexittravelmoneycalculator.data
+namespace BrexitTravelMoneyCalculator.Data
 {
     internal class CurrenciesClient
     {

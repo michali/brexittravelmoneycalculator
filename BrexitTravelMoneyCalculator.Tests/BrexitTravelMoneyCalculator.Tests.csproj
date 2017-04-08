@@ -11,6 +11,6 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.0.3" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\brexittravelmoneycalculator.web\brexittravelmoneycalculator.web.csproj" />
+    <ProjectReference Include="..\BrexitTravelMoneyCalculator.Web\BrexitTravelMoneyCalculator.Web.csproj" />
   </ItemGroup>
 </Project>

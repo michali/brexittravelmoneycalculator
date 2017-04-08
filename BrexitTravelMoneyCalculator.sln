@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "brexittravelmoneycalculator.data", "brexittravelmoneycalculator.data\brexittravelmoneycalculator.data.csproj", "{A83D3038-E737-45E2-812A-618492AEF9F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrexitTravelMoneyCalculator.Data", "BrexitTravelMoneyCalculator.Data\BrexitTravelMoneyCalculator.Data.csproj", "{A83D3038-E737-45E2-812A-618492AEF9F0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "brexittravelmoneycalculator.tests", "brexittravelmoneycalculator.tests\brexittravelmoneycalculator.tests.csproj", "{1F1EED19-EA1D-4B05-B40C-2A1E1FCDC8E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrexitTravelMoneyCalculator.Tests", "BrexitTravelMoneyCalculator.Tests\BrexitTravelMoneyCalculator.Tests.csproj", "{1F1EED19-EA1D-4B05-B40C-2A1E1FCDC8E5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "brexittravelmoneycalculator.web", "brexittravelmoneycalculator.web\brexittravelmoneycalculator.web.csproj", "{FB9F159A-1F15-412A-955F-8EED1317A4AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrexitTravelMoneyCalculator.Web", "BrexitTravelMoneyCalculator.Web\BrexitTravelMoneyCalculator.Web.csproj", "{FB9F159A-1F15-412A-955F-8EED1317A4AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Azure.Documents;
 using System;
 
-namespace brexittravelmoneycalculator.data
+namespace BrexitTravelMoneyCalculator.Data
 {
     class Program
     {

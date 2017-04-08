@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NSubstitute;
 
-namespace Brexittravelmoneycalculator.Tests
+namespace BrexitTravelMoneyCalculator.Tests
 {
     public class CountriesControllerTests
     {
