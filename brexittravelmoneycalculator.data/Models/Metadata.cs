@@ -8,6 +8,6 @@ namespace brexittravelmoneycalculator.data.Models
         [JsonProperty(PropertyName = "id")]
         public string Id{get;set;}
         [JsonProperty(PropertyName = "last_updated")]
-        DateTime LastUpdated{get;set;}
+        public DateTime LastUpdated {get;set;}
     }
 }
