@@ -56,7 +56,7 @@ namespace BrexitTravelMoneyCalculator.Data
                 Id = "SEK",
                 Code = "SEK",
                 Name = "Swedish Krona",
-                ExchangeRate = 1
+                ExchangeRate = 11
             });
 
             await this.CreateDocumentIfNotExists(
@@ -113,7 +113,7 @@ namespace BrexitTravelMoneyCalculator.Data
             await this.CreateDocumentIfNotExists(
             new Country
             {
-                Id = "KO",
+                Id = "KR",
                 Name = "South Korea",
                 CurrencyId = "KRW"
             });
