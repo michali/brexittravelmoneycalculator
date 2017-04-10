@@ -20,12 +20,17 @@ namespace BrexitTravelMoneyCalculator.Data
 
         internal string GetEndpointUri()
         {
-            throw new NotImplementedException();
+            return configuration["endpointUri"];
         }
 
-        internal SecureString GetPrimaryKey()
+        internal string GetPrimaryKey()
         {
-            throw new NotImplementedException();
+            return configuration["masterKey"];
+        }
+
+        internal string GetDatabaseName()
+        {
+            return configuration["databaseName"];
         }
     }
 }

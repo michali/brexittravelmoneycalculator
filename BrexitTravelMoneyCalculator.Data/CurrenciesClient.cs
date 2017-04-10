@@ -11,26 +11,19 @@ namespace BrexitTravelMoneyCalculator.Data
 {
     internal class CurrenciesClient
     {
-        private static string endpointUri;
-        private static string primaryKey;
         private DocumentClient client;
-        private const string DatabaseName = "BrexitTravelMoneyCalculator";
-        private const string CollectionName = "Currencies";
         private readonly Conf conf;
-
+        private const string collectionName = "Currencies";
         public CurrenciesClient()
         {
             conf = new Conf();
+            this.client = new DocumentClient(new Uri(conf.GetEndpointUri()), conf.GetPrimaryKey());
         }
 
         internal async Task SetupDocuments()
-        {
-            // Create a new instance of the DocumentClient
-            this.client = new DocumentClient(new Uri(conf.GetEndpointUri()), conf.GetPrimaryKey());
-
-            await this.CreateDatabaseIfNotExists("BrexitTravelMoneyCalculator");
-
-            await this.CreateDocumentCollectionIfNotExists("BrexitTravelMoneyCalculator", "Currencies");
+        { 
+            await this.CreateDatabaseIfNotExists(conf.GetDatabaseName());
+            await this.CreateDocumentCollectionIfNotExists(conf.GetDatabaseName(), collectionName);
 
             await this.CreateDocumentIfNotExists(
            new Currency
@@ -203,15 +196,15 @@ namespace BrexitTravelMoneyCalculator.Data
         {
             try
             {
-                await this.client.ReadDocumentAsync(UriFactory.CreateDocumentUri(DatabaseName, CollectionName, document.Id));
+                await this.client.ReadDocumentAsync(UriFactory.CreateDocumentUri(conf.GetDatabaseName(), collectionName, document.Id));
                 Console.WriteLine("Found {0}", document.Id);
             }
             catch (DocumentClientException de)
             {
                 if (de.StatusCode == HttpStatusCode.NotFound)
                 {
-                    await this.client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), document);
-                    Console.WriteLine("Created Currency {0}", document.Id);
+                    await this.client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(conf.GetDatabaseName(), collectionName), document);
+                    Console.WriteLine("Created {0} {1}", document.GetType().Name, document.Id);
                 }
                 else
                 {
