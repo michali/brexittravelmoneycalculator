@@ -1,15 +1,28 @@
-using System.Net;
-using Microsoft.Azure.Documents;
+using System;
+using System.Linq;
+using BrexitTravelMoneyCalculator.Web.Data.Models;
 using Microsoft.Azure.Documents.Client;
-using Newtonsoft.Json;
 
 namespace BrexitTravelMoneyCalculator.Web.Data
 {
-    public class DbService
+    public class DbService : IDbService
     {
-        public object[] GetCountries()
+        private readonly Conf conf;
+        private readonly DocumentClient client;
+
+        public DbService()
         {
-            return new object[]{};
+            conf = new Conf();
+            client = new DocumentClient(new Uri(conf.GetEndpointUri()), conf.GetPrimaryKey());
+        }
+        public IQueryable<Country> GetCountries()
+        {
+            FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
+
+            return this.client.CreateDocumentQuery<Country>(
+                UriFactory.CreateDocumentCollectionUri(conf.GetDatabaseName(), conf.GetCollectionName()), 
+                queryOptions)
+                .Where(c=>c.Type == "Country");
         }
     }
 }

@@ -1,7 +1,10 @@
+using System.Linq;
+using BrexitTravelMoneyCalculator.Web.Data.Models;
+
 namespace BrexitTravelMoneyCalculator.Web.Data
 {
     public interface IDbService
     {
-        object[] GetCountries();
+        IQueryable<Country> GetCountries();
     }
 }

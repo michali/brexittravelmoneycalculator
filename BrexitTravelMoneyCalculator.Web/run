@@ -2,7 +2,6 @@
 # build and run a site
 
 npm install
-bower install
 tsc
 dotnet restore
 dotnet build

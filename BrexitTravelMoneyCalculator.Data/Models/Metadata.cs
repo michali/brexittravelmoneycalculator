@@ -3,10 +3,8 @@ using Newtonsoft.Json;
 
 namespace BrexitTravelMoneyCalculator.Data.Models
 {
-    public class Metadata : IDocument
+    public class Metadata : Document
     {
-        [JsonProperty(PropertyName = "id")]
-        public string Id{get;set;}
         [JsonProperty(PropertyName = "last_updated")]
         public DateTime LastUpdated {get;set;}
     }

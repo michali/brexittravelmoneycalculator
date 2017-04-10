@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using System.IO;
+using BrexitTravelMoneyCalculator.Web.Data;
 
 namespace BrexitTravelMoneyCalculatorWeb
 {
@@ -27,6 +28,7 @@ namespace BrexitTravelMoneyCalculatorWeb
         {
             // Add framework services.
             services.AddMvc();
+            services.AddTransient<IDbService, DbService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

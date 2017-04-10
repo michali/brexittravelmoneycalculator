@@ -1,7 +1,8 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Microsoft.Extensions.Configuration;
 
-namespace BrexitTravelMoneyCalculator.Data
+namespace BrexitTravelMoneyCalculator.Web
 {
     internal class Conf
     {
@@ -18,17 +19,22 @@ namespace BrexitTravelMoneyCalculator.Data
 
         internal string GetEndpointUri()
         {
-            return configuration["endpointUri"];
+            return configuration["DatabaseConnection:endpointUri"];
         }
 
         internal string GetPrimaryKey()
         {
-            return configuration["key"];
+            return configuration["DatabaseConnection:key"];
         }
 
         internal string GetDatabaseName()
         {
-            return configuration["databaseName"];
+            return configuration["DatabaseConnection:databaseName"];
+        }
+
+        internal string GetCollectionName()
+        {
+            return configuration["DatabaseConnection:collectionName"];
         }
     }
 }

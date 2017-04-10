@@ -2,10 +2,8 @@ using Newtonsoft.Json;
 
 namespace BrexitTravelMoneyCalculator.Data.Models
 {
-    public class Country : IDocument
+    public class Country : Document
     {
-        [JsonProperty(PropertyName = "id")]
-        public string Id {get;set;}
         public string Name {get;set;}
         [JsonProperty(PropertyName="currency_id")]
         public string CurrencyId{get;set;}
