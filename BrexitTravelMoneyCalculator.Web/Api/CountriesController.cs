@@ -21,10 +21,10 @@ namespace BrexitTravelMoneyCalculator.Web.Api
             var countries = dbService.GetCountries();
             if (!countries.Any())
             {
-                return NotFound();
-            }            
+                return NoContent();
+            }   
 
-            return Ok(countries);
+            return Ok(countries.Select(c=>new{c.Id, c.Name}));
         }
     }    
 }

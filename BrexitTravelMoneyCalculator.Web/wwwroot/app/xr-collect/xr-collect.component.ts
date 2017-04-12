@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ICountry } from './country';
+import { CountriesService } from './countries.service'
 
 @Component({
     moduleId: module.id,
@@ -10,14 +11,14 @@ export class XrCollectComponent implements OnInit{
 
     countries: ICountry[]
     selectedCountryValue: number = -1;
+    errorMessage: string;
 
-    constructor(private _router: Router){}
+    constructor(private _router: Router, private _countriesService: CountriesService){}
 
     ngOnInit(): void {
-        this.countries = [];
-        this.countries.push({id:-1, name: "Please select a country"})
-        this.countries.push({id:1, name:"Sweden"});
-        this.countries.push({id:2, name:"Republic of Ireland"});       
+                this._countriesService.getCountries()
+                .subscribe(c => this.countries = c,
+                           error => this.errorMessage = <any>error);   
     }
 
     onSubmit(form:any) : void {

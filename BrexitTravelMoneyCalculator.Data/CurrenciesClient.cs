@@ -78,6 +78,15 @@ namespace BrexitTravelMoneyCalculator.Data
             });
 
             await this.CreateDocumentIfNotExists(
+            new Currency
+            {
+                Id = "CAD",
+                Code = "CAD",
+                Name = "Canadian Dollar",
+                ExchangeRate = 1.65
+            });
+
+            await this.CreateDocumentIfNotExists(
             new Country
             {
                 Id = "ES",
@@ -89,7 +98,7 @@ namespace BrexitTravelMoneyCalculator.Data
             new Country
             {
                 Id = "CA",
-                Name = "Canadian Dollar",
+                Name = "Canada",
                 CurrencyId = "CAD"
             });
 

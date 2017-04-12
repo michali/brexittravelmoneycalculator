@@ -7,8 +7,11 @@ namespace BrexitTravelMoneyCalculator.Data.Models
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
-        public string Type {
-            get{
+        [JsonProperty(PropertyName = "type")]
+        public string Type
+        {
+            get
+            {
                 return this.GetType().Name;
             }
         }
