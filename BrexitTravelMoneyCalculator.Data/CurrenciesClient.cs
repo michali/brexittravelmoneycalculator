@@ -29,7 +29,8 @@ namespace BrexitTravelMoneyCalculator.Data
                Id = "EUR",
                Code = "EUR",
                Name = "Euro",
-               ExchangeRate = 1.16
+               ExchangeRate = 1.16,
+               PreRefExchangeRate = 1.31
            });
 
             await this.CreateDocumentIfNotExists(
@@ -38,7 +39,8 @@ namespace BrexitTravelMoneyCalculator.Data
                 Id = "USD",
                 Code = "USD",
                 Name = "US Dollar",
-                ExchangeRate = 1.24
+                ExchangeRate = 1.24,
+                PreRefExchangeRate = 1.48
             });
 
             await this.CreateDocumentIfNotExists(
@@ -47,7 +49,8 @@ namespace BrexitTravelMoneyCalculator.Data
                 Id = "SEK",
                 Code = "SEK",
                 Name = "Swedish Krona",
-                ExchangeRate = 11
+                ExchangeRate = 11,
+                PreRefExchangeRate = 12.21
             });
 
             await this.CreateDocumentIfNotExists(
@@ -56,7 +59,8 @@ namespace BrexitTravelMoneyCalculator.Data
                 Id = "AUD",
                 Code = "AUD",
                 Name = "Australian Dollar",
-                ExchangeRate = 1.64
+                ExchangeRate = 1.64,
+                PreRefExchangeRate = 1.97
             });
 
             await this.CreateDocumentIfNotExists(
@@ -65,7 +69,8 @@ namespace BrexitTravelMoneyCalculator.Data
                 Id = "KRW",
                 Code = "KRW",
                 Name = "South Korean Won",
-                ExchangeRate = 1454.43
+                ExchangeRate = 1454.43,
+                PreRefExchangeRate = 1703.27
             });
 
             await this.CreateDocumentIfNotExists(
@@ -74,7 +79,8 @@ namespace BrexitTravelMoneyCalculator.Data
                 Id = "JPY",
                 Code = "JPY",
                 Name = "Japanese Yen",
-                ExchangeRate = 141.82
+                ExchangeRate = 141.82,
+                PreRefExchangeRate = 155.77
             });
 
             await this.CreateDocumentIfNotExists(
@@ -83,7 +89,8 @@ namespace BrexitTravelMoneyCalculator.Data
                 Id = "CAD",
                 Code = "CAD",
                 Name = "Canadian Dollar",
-                ExchangeRate = 1.65
+                ExchangeRate = 1.65,
+                PreRefExchangeRate = 1.9
             });
 
             await this.CreateDocumentIfNotExists(

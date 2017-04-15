@@ -12,5 +12,8 @@ namespace BrexitTravelMoneyCalculator.Data.Models
 
         [JsonProperty(PropertyName = "exchange_rate")]
         public double ExchangeRate { get; set; }
+
+        [JsonPropertyAttribute(PropertyName="pre_ref_exchange_rate")]
+        public double PreRefExchangeRate { get; internal set; }
     }
 }
