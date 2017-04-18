@@ -10,14 +10,15 @@ import { CountriesService } from './countries.service'
 export class XrCollectComponent implements OnInit{ 
 
     countries: ICountry[]
-    selectedCountryValue: number = -1;
+    selectedCountryValue: string = "-1";
     errorMessage: string;
 
     constructor(private _router: Router, private _countriesService: CountriesService){}
 
     ngOnInit(): void {
                 this._countriesService.getCountries()
-                .subscribe(c => this.countries = c,
+                .subscribe(c => {this.countries = c;
+                this.countries.unshift({id : "-1", name: "Please select a country"})},
                            error => this.errorMessage = <any>error);   
     }
 

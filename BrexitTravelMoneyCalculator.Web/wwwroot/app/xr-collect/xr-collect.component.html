@@ -3,7 +3,7 @@
 <form class="inside-panel" (ngSubmit)="onSubmit(f.value)" #f="ngForm"  novalidate>
     <div class="form-group">
         <label for="amount">How much money are you converting, in sterling?</label>
-        <input type="number" (ngModel)="model.amount" min="0" class="form-control" 
+        <input type="number" (ngModel)="model.amount" min="1" class="form-control" 
         id="amount" name="amount" #amount="ngModel" required>
         <div [hidden]="amount.valid || amount.pristine"
              class="alert alert-danger">

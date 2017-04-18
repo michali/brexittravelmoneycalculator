@@ -15,5 +15,8 @@ namespace BrexitTravelMoneyCalculator.Web.Data.Models
 
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }
+
+        [JsonProperty(PropertyName = "local_product")]
+        public LocalProduct LocalProduct {get;set;}
     }
 }

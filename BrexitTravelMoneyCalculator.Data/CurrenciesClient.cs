@@ -98,7 +98,13 @@ namespace BrexitTravelMoneyCalculator.Data
             {
                 Id = "ES",
                 Name = "Spain",
-                CurrencyId = "EUR"
+                CurrencyId = "EUR",
+                LocalProduct = new LocalProduct
+                {
+                    NameSingular="Tapas",
+                    NamePlural = "Tapas",
+                    Price = 5
+                }
             });
 
             await this.CreateDocumentIfNotExists(
@@ -106,7 +112,13 @@ namespace BrexitTravelMoneyCalculator.Data
             {
                 Id = "CA",
                 Name = "Canada",
-                CurrencyId = "CAD"
+                CurrencyId = "CAD",
+                LocalProduct = new LocalProduct
+                {
+                    NameSingular="Beer",
+                    NamePlural ="Beers",
+                    Price = 5
+                }
             });
 
             await this.CreateDocumentIfNotExists(
@@ -114,7 +126,13 @@ namespace BrexitTravelMoneyCalculator.Data
             {
                 Id = "SE",
                 Name = "Sweden",
-                CurrencyId = "SEK"
+                CurrencyId = "SEK",
+                LocalProduct = new LocalProduct
+                {
+                    NameSingular="Meatball dish",
+                    NamePlural="Meatball dishes",
+                    Price = 56
+                }
             });
 
             await this.CreateDocumentIfNotExists(
@@ -122,7 +140,13 @@ namespace BrexitTravelMoneyCalculator.Data
             {
                 Id = "KR",
                 Name = "South Korea",
-                CurrencyId = "KRW"
+                CurrencyId = "KRW",
+                LocalProduct = new LocalProduct
+                {
+                    NameSingular="Seafood platter",
+                    NamePlural="Seafood platters",
+                    Price = 10000
+                }
             });
 
             await this.CreateDocumentIfNotExists(
@@ -130,7 +154,13 @@ namespace BrexitTravelMoneyCalculator.Data
             {
                 Id = "JP",
                 Name = "Japan",
-                CurrencyId = "JPY"
+                CurrencyId = "JPY",
+                LocalProduct = new LocalProduct
+                {
+                    NameSingular="Ramen soup",
+                    NamePlural = "Ramen soups",
+                    Price = 800
+                }
             });
 
             await this.CreateDocumentIfNotExists(
@@ -138,7 +168,13 @@ namespace BrexitTravelMoneyCalculator.Data
             {
                 Id = "US",
                 Name = "United States of America",
-                CurrencyId = "USD"
+                CurrencyId = "USD",
+                LocalProduct = new LocalProduct
+                {
+                    NameSingular="Burger with fries",
+                    NamePlural = "Burgers with fries",
+                    Price = 10
+                }
             });
 
             await this.CreateDocumentIfNotExists(
