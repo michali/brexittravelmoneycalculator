@@ -17,12 +17,25 @@ namespace BrexitTravelMoneyCalculator.Web.Api
         public IActionResult Get(int amount, string countryId)
         {
             var country = dbService.GetCountry(countryId);
-            var currency = dbService.GetCurrency(country.CurrencyId);
 
-            return Ok(new {
-                Country = new {
+            if (country == null)
+            {
+                return NotFound();
+            }
+            var currency = dbService.GetCurrency(country.CurrencyId);
+          
+            if (currency == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(new
+            {
+                Country = new
+                {
                     Name = country.Name,
-                    Currency = new {
+                    Currency = new
+                    {
                         Code = currency.Code,
                         PreRefExchangeRate = currency.PreRefExchangeRate,
                         ExchangeRate = currency.ExchangeRate

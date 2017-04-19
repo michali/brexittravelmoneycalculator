@@ -3,8 +3,6 @@ using BrexitTravelMoneyCalculator.Web.Data;
 using BrexitTravelMoneyCalculator.Web.Data.Models;
 using Xunit;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Linq;
 using NSubstitute;
 
 namespace BrexitTravelMoneyCalculator.Tests
