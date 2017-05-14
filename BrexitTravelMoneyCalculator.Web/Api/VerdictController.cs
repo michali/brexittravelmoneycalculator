@@ -7,42 +7,23 @@ namespace BrexitTravelMoneyCalculator.Web.Api
     [Produces("application/json")]
     public class VerdictController : Controller
     {
-        private IDbService dbService;
+        private IDataService dataService;
 
-        public VerdictController(IDbService dbService)
+        public VerdictController(IDataService dataService)
         {
-            this.dbService = dbService;
+            this.dataService = dataService;
         }
         [HttpGet]
         public IActionResult Get(int amount, string countryId)
         {
-            var country = dbService.GetCountry(countryId);
+            var verdict = dataService.GetVerdict(countryId);
 
-            if (country == null)
+            if (verdict == null)
             {
                 return NotFound();
-            }
-            var currency = dbService.GetCurrency(country.CurrencyId);
-          
-            if (currency == null)
-            {
-                return NotFound();
-            }
+            }            
 
-            return Ok(new
-            {
-                Country = new
-                {
-                    Name = country.Name,
-                    Currency = new
-                    {
-                        Code = currency.Code,
-                        PreRefExchangeRate = currency.PreRefExchangeRate,
-                        ExchangeRate = currency.ExchangeRate
-                    },
-                    LocalProduct = country.LocalProduct
-                }
-            });
+            return Ok(verdict);
         }
     }
 }

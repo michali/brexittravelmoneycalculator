@@ -6,12 +6,12 @@ using Microsoft.Azure.Documents.Client;
 
 namespace BrexitTravelMoneyCalculator.Web.Data
 {
-    public class DbService : IDbService
+    public class AzureDocumentDbService : IDataService
     {
         private readonly Conf conf;
         private readonly DocumentClient client;
 
-        public DbService()
+        public AzureDocumentDbService()
         {
             conf = new Conf();
             client = new DocumentClient(new Uri(conf.GetEndpointUri()), conf.GetPrimaryKey());
@@ -26,7 +26,39 @@ namespace BrexitTravelMoneyCalculator.Web.Data
                 .Where(c=>c.Type == "Country").AsEnumerable();
         }
 
-        public Country GetCountry(string countryId)
+        public object GetVerdict(string countryId)
+        {
+            var country = GetCountry(countryId);
+
+            if (country == null)
+            {
+                return null;
+            }
+
+            var currency = GetCurrency(country.CurrencyId);
+
+            if (currency == null)
+            {
+                return null;
+            }
+
+            return new 
+            {
+                Country = new
+                {
+                    Name = country.Name,
+                    Currency = new
+                    {
+                        Code = currency.Code,
+                        PreRefExchangeRate = currency.PreRefExchangeRate,
+                        ExchangeRate = currency.ExchangeRate
+                    },
+                    LocalProduct = country.LocalProduct
+                }
+            };
+        }
+
+        private Country GetCountry(string countryId)
         {
             FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
 
@@ -36,7 +68,7 @@ namespace BrexitTravelMoneyCalculator.Web.Data
                 .Where(c=>c.Id == countryId && c.Type == "Country").AsEnumerable().SingleOrDefault();
         }
 
-        public Currency GetCurrency(string currencyId)
+        private Currency GetCurrency(string currencyId)
         {
             FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
 

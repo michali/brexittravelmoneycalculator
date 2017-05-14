@@ -8,17 +8,17 @@ namespace BrexitTravelMoneyCalculator.Web.Api
     [Produces("application/json")]
     public class CountriesController : Controller
     {
-        private IDbService dbService;
+        private IDataService dataService;
 
-        public CountriesController(IDbService dbService)
+        public CountriesController(IDataService dataService)
         {
-            this.dbService = dbService;
+            this.dataService = dataService;
         }
         
         [HttpGet]
         public IActionResult Get()
         {
-            var countries = dbService.GetCountries();
+            var countries = dataService.GetCountries();
             if (!countries.Any())
             {
                 return NoContent();
