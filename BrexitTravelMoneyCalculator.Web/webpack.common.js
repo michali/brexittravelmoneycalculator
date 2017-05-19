@@ -3,6 +3,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('./helpers');
 var path = require('path');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -25,10 +26,18 @@ module.exports = {
         test: /\.html$/,
         loader: 'html-loader'
       },
+      // { 
+      //    test: /\.scss$/, 
+      //    loaders: ['style', 'css', 'postcss', 'sass'] 
+      // },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
         loader: 'file-loader?name=assets/[name].[hash].[ext]'
       },
+      // { 
+      //   test: /bootstrap\/dist\/js\/umd\//, 
+      //   loader: 'imports?jQuery=jquery' 
+      // },
       {
         test: /\.css$/,
         exclude: helpers.root('scripts', 'app'),
@@ -49,7 +58,7 @@ module.exports = {
     new webpack.ContextReplacementPlugin(
       // The (\\|\/) piece accounts for path separators in *nix and Windows
       /angular(\\|\/)core(\\|\/)@angular/,
-      helpers.root('./src'), // location of your src
+      helpers.root('./scripts'), // location of your src
       {} // a map of your routes
     ),
 
@@ -58,7 +67,15 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      template: 'wwwroot/index.html'
+      template: 'scripts/app/index.html'
+    }),
+
+    new CleanWebpackPlugin(['./wwwroot/']),
+
+    new webpack.ProvidePlugin({   
+        jQuery: 'jquery',
+        $: 'jquery',
+        jquery: 'jquery'
     })
   ]
 };

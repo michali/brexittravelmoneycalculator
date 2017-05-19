@@ -4,25 +4,33 @@ import { ICountry } from './country';
 import { CountriesService } from './countries.service'
 
 @Component({
-    moduleId: module.id,
+    moduleId: module.id + '',
     templateUrl: 'xr-collect.component.html'
 })
-export class XrCollectComponent implements OnInit{ 
+export class XrCollectComponent implements OnInit {
 
     countries: ICountry[]
     selectedCountryValue: string = "-1";
     errorMessage: string;
 
-    constructor(private _router: Router, private _countriesService: CountriesService){}
+    constructor(private _router: Router, private _countriesService: CountriesService) { }
 
     ngOnInit(): void {
-                this._countriesService.getCountries()
-                .subscribe(c => {this.countries = c;
-                this.countries.unshift({id : "-1", name: "Please select a country"})},
-                           error => this.errorMessage = <any>error);   
+        var prompt : ICountry = {
+            id: "-1",
+                    name: "Please select a country",
+                    currency: null,
+                    localProduct: null
+        };
+        this._countriesService.getCountries()
+            .subscribe(c => {
+            this.countries = c;
+                this.countries.unshift(prompt)
+            },
+            error => this.errorMessage = <any>error);
     }
 
-    onSubmit(form:any) : void {
-        this._router.navigate(['verdict'], {queryParams: {amount: form.amount, countryId: form.countryId}});
+    onSubmit(form: any): void {
+        this._router.navigate(['verdict'], { queryParams: { amount: form.amount, countryId: form.countryId } });
     }
 }
