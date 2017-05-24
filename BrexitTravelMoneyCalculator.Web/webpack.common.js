@@ -9,7 +9,8 @@ module.exports = {
   entry: {
     'polyfills': './scripts/polyfills.ts',
     'vendor': './scripts/vendor.ts',
-    'app': './scripts/app/main.ts'
+    'app': './scripts/app/main.ts',
+    'styles': './scripts/app/styles.css',
   },
   output: {
     filename: '[name].js',
