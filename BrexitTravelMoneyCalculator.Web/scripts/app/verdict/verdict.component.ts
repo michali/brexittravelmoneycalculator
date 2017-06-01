@@ -4,7 +4,7 @@ import { ActivatedRoute, Params } from "@angular/router";
 import { ICountry } from "./country";
 
 @Component({
-    moduleId: module.id,
+    moduleId: module.id + '',
     templateUrl: 'verdict.component.html'
 })
 export class VerdictComponent implements OnInit {
