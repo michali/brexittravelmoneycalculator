@@ -27,11 +27,11 @@ bld/
 # Uncomment if you have tasks that create the project's static files in wwwroot
 wwwroot/
 
-**/wwwroot/lib
+**/wwwroot/*
 
-**/app/**/*.js
-**/app/**.js
-**/*.js.map
+**/scripts/**/*.js
+**/scripts/**.js
+**/scripts/**/*.js.map
 
 # MSTest test Results
 [Tt]est[Rr]esult*/

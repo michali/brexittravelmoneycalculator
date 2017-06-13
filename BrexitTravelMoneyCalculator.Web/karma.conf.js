@@ -11,12 +11,13 @@ module.exports = function(config) {
  
     // frameworks to use 
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter 
-    frameworks: ['jasmine'], 
+    frameworks: ['jasmine', 'karma-typescript'], 
  
  
     // list of files / patterns to load in the browser 
     files: [ 
-      'scripts/test/**/*.spec.ts' 
+      'node_modules/reflect-metadata/Reflect.js', // 'Uncaught reflect-metadata shim is required when using class decorators'
+      'scripts/**/*.ts' 
     ], 
  
  
@@ -24,11 +25,14 @@ module.exports = function(config) {
     exclude: [ 
     ], 
  
- 
+    mime: {
+      'text/x-typescript': ['ts','tsx']
+    },
+    
     // preprocess matching files before serving them to the browser 
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor 
     preprocessors: { 
-        'scripts/test/**/*.spec.ts': ['webpack']
+        'scripts/**/*.ts': ['webpack']
     }, 
  
  

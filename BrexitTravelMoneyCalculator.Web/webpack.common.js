@@ -62,9 +62,9 @@ module.exports = {
       {} // a map of your routes
     ),
 
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'vendor', 'polyfills']
-    }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: ['app', 'vendor', 'polyfills']
+    // }),
 
     new HtmlWebpackPlugin({
       template: 'scripts/app/index.html'

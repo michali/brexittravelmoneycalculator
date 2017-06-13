@@ -1,14 +1,18 @@
-import { TestBed } from '@angular/core/testing'; 
+import 'zone.js/dist/proxy';
+import 'zone.js/dist/sync-test';
+import 'zone.js/dist/async-test';
+import 'zone.js/dist/jasmine-patch';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing'; 
+import { RouterTestingModule } from '@angular/router/testing';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms'; 
 import { VerdictComponent } from '../app/verdict/verdict.component'; 
-import { VerdictService } from "../app/verdict/verdict.service";
-import { Observable } from "rxjs/Observable";
-import { ICountry } from "../app/verdict/country";
-import { Subject } from "rxjs";
-import { async } from "@angular/core/testing";
-import { ComponentFixture } from "@angular/core/testing";
+import { VerdictService } from '../app/verdict/verdict.service';
+import { Observable } from 'rxjs/Observable';
+import { ICountry } from '../app/verdict/country';
+import { Subject } from 'rxjs';
+import {BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 import {} from 'jasmine';
- 
+  
 describe('Component: VerdictComponent', () => { 
     let component: VerdictComponent; 
     let fixture: ComponentFixture<VerdictComponent>;
@@ -36,10 +40,11 @@ describe('Component: VerdictComponent', () => {
                 return Observable.of(country);
             }
         }
+        TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
 
         TestBed.configureTestingModule({ 
             declarations: [VerdictComponent], 
-            imports: [ReactiveFormsModule], 
+            imports: [ReactiveFormsModule, RouterTestingModule], 
             providers:    [ {provide: VerdictService, useValue: verdictServiceStub } ] 
         }); 
  
