@@ -54,7 +54,7 @@ describe('Component: VerdictComponent', () => {
     }); 
  
     it('should fail', async(() => { 
-       // fixture.detectChanges();
+        fixture.detectChanges();
         expect(1).toBe(2); 
     })) 
 })
