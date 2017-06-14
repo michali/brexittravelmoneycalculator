@@ -5,12 +5,14 @@ import 'zone.js/dist/jasmine-patch';
 import { TestBed, async, ComponentFixture } from '@angular/core/testing'; 
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms'; 
+import { ActivatedRoute, Params } from "@angular/router";
 import { VerdictComponent } from '../app/verdict/verdict.component'; 
 import { VerdictService } from '../app/verdict/verdict.service';
 import { Observable } from 'rxjs/Observable';
 import { ICountry } from '../app/verdict/country';
 import { Subject } from 'rxjs';
-import {BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
+import { ActivatedRouteStub} from './activatedroute.stub';
+import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 import {} from 'jasmine';
   
 describe('Component: VerdictComponent', () => { 
@@ -20,41 +22,49 @@ describe('Component: VerdictComponent', () => {
     let verdictServiceStub : {
         getVerdict(countryId:string): Observable<ICountry>;
     };
- 
+    let activatedRouteStub: ActivatedRouteStub;
+    let activatedRoute: ActivatedRoute;
+
     beforeEach(() => { 
         verdictServiceStub = {
             getVerdict : (c) => {
                 var country : ICountry = {
-                    name : "UK",
+                    name : "ES",
                     currency : {
-                        code : "",
-                        exchangeRate:1,
-                        preRefExchangeRate:1
+                        code : "EUR",
+                        exchangeRate:1.1,
+                        preRefExchangeRate:1.4
                     },
                     localProduct: {
-                        nameSingular:"",
-                        namePlural:"",
-                        price:1
+                        nameSingular:"product",
+                        namePlural:"products",
+                        price:140
                     }
                 }
                 return Observable.of(country);
             }
         }
+
+        activatedRouteStub = new ActivatedRouteStub();
+
         TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
 
         TestBed.configureTestingModule({ 
             declarations: [VerdictComponent], 
             imports: [ReactiveFormsModule, RouterTestingModule], 
-            providers:    [ {provide: VerdictService, useValue: verdictServiceStub } ] 
+            providers:    [ {provide: VerdictService, useValue: verdictServiceStub },
+             { provide: ActivatedRoute, useValue: activatedRouteStub } ] 
         }); 
  
         fixture = TestBed.createComponent(VerdictComponent); 
         component = fixture.componentInstance; 
         verdictService = TestBed.get(VerdictService);
+        activatedRoute = TestBed.get(ActivatedRoute)
     }); 
  
     it('should fail', async(() => { 
+        activatedRouteStub.testParams = { amount: 140 };
         fixture.detectChanges();
-        expect(1).toBe(2); 
+        expect(component.noOfProducts).toBe(2); 
     })) 
 })

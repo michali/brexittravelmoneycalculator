@@ -13,11 +13,14 @@ import 'rxjs/add/observable/of';
 export class VerdictComponent implements OnInit {
     
     _country: ICountry;
+    noOfProducts: number;
     
     constructor(private _route:ActivatedRoute, private _verdictService:VerdictService){}
 
     ngOnInit():void {
         this._route.params.switchMap((params:Params) => this._verdictService.getVerdict(params['countryId']))
         .subscribe((country:ICountry) => this._country = country)
+
+        this.noOfProducts = 15;
     }
 }
