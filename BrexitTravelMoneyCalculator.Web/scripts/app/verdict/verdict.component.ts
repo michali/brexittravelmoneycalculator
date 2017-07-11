@@ -12,15 +12,39 @@ import 'rxjs/add/observable/of';
 })
 export class VerdictComponent implements OnInit {
     
-    _country: ICountry;
     noOfProducts: number;
-    
-    constructor(private _route:ActivatedRoute, private _verdictService:VerdictService){}
+    noOfProductsPreRef: number;
+    productName: string;
+    private sub: any;   
+    errorMessage: string;
+    constructor(private route:ActivatedRoute, private verdictService:VerdictService){}
 
     ngOnInit():void {
-        this._route.params.switchMap((params:Params) => this._verdictService.getVerdict(params['countryId']))
-        .subscribe((country:ICountry) => this._country = country)
+        let countryId: string;
+        let amount: number;
+        this.sub = this.route
+        .params
+        .subscribe(params => {
+            amount = params['amount'];
+            countryId = params['countryId'];
+        });
 
-        this.noOfProducts = 15;
+        let country: ICountry;
+        this.verdictService.getVerdict(countryId).subscribe(c => {
+            country = c;
+        },
+        error => this.errorMessage = <any>error);
+        this.noOfProductsPreRef = Math.floor((amount * country.currency.preRefExchangeRate) / country.localProduct.price);
+        let noOfProductsPostRef = Math.floor((amount * country.currency.exchangeRate) / country.localProduct.price);
+        this.noOfProducts = this.noOfProductsPreRef - noOfProductsPostRef;
+
+        if (this.noOfProducts === 1)
+        {
+            this.productName = country.localProduct.nameSingular;
+        }
+        else
+        {
+            this.productName = country.localProduct.namePlural;
+        }
     }
 }

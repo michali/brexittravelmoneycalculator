@@ -25,6 +25,10 @@ describe('Component: VerdictComponent', () => {
     let activatedRouteStub: ActivatedRouteStub;
     let activatedRoute: ActivatedRoute;
 
+    beforeAll(() => {
+        TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
+    });
+
     beforeEach(() => { 
         verdictServiceStub = {
             getVerdict : (c) => {
@@ -36,8 +40,8 @@ describe('Component: VerdictComponent', () => {
                         preRefExchangeRate:1.4
                     },
                     localProduct: {
-                        nameSingular:"product",
-                        namePlural:"products",
+                        nameSingular: "product",
+                        namePlural: "products",
                         price:140
                     }
                 }
@@ -46,8 +50,6 @@ describe('Component: VerdictComponent', () => {
         }
 
         activatedRouteStub = new ActivatedRouteStub();
-
-        TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
 
         TestBed.configureTestingModule({ 
             declarations: [VerdictComponent], 
@@ -62,9 +64,21 @@ describe('Component: VerdictComponent', () => {
         activatedRoute = TestBed.get(ActivatedRoute)
     }); 
  
-    it('should fail', async(() => { 
-        activatedRouteStub.testParams = { amount: 140 };
+    it('should report the correct number of products pre referendum - round downwards', async(() => { 
+        activatedRouteStub.testParams = { amount: 2000, countryId: "ES" };
         fixture.detectChanges();
-        expect(component.noOfProducts).toBe(2); 
-    })) 
+        expect(component.noOfProductsPreRef).toBe(20); 
+    }));
+
+    it('should report the correct number of lost products post referendum - round downwards', async(() => { 
+        activatedRouteStub.testParams = { amount: 2000, countryId: "ES" };
+        fixture.detectChanges();
+        expect(component.noOfProducts).toBe(5); 
+    }));
+
+    it('should give the plural name of the products if consumer has lost more than one product', async(() => { 
+        activatedRouteStub.testParams = { amount: 2000, countryId: "ES" };
+        fixture.detectChanges();
+        expect(component.productName).toBe("products"); 
+    }));
 })
