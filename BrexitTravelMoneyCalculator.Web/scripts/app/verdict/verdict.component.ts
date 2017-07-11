@@ -14,7 +14,10 @@ export class VerdictComponent implements OnInit {
     
     noOfProducts: number;
     noOfProductsPreRef: number;
+    preRefExchangeRate: number;
+    exchangeRate: number;
     productName: string;
+    currencyCode: string;
     private sub: any;   
     errorMessage: string;
     constructor(private route:ActivatedRoute, private verdictService:VerdictService){}
@@ -37,7 +40,9 @@ export class VerdictComponent implements OnInit {
         this.noOfProductsPreRef = Math.floor((amount * country.currency.preRefExchangeRate) / country.localProduct.price);
         let noOfProductsPostRef = Math.floor((amount * country.currency.exchangeRate) / country.localProduct.price);
         this.noOfProducts = this.noOfProductsPreRef - noOfProductsPostRef;
-
+        this.preRefExchangeRate = country.currency.preRefExchangeRate;
+        this.currencyCode = country.currency.code;
+        this.exchangeRate = country.currency.exchangeRate;
         if (this.noOfProducts === 1)
         {
             this.productName = country.localProduct.nameSingular;
