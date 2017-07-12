@@ -28,7 +28,7 @@ export class VerdictComponent implements OnInit {
         this.sub = this.route
         .params
         .subscribe(params => {
-            amount = params['amount'];
+            amount = +params['amount'];
             countryId = params['countryId'];
         });
 

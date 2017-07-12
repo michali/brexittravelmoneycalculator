@@ -1,6 +1,3 @@
-#!/bin/bash
-# build and run a site
-
 npm run build
 dotnet build
 dotnet run
