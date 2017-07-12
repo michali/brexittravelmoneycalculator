@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { VerdictService } from './verdict.service';
 import { ActivatedRoute, Params } from "@angular/router";
 import { ICountry } from "./country";
@@ -10,7 +10,7 @@ import 'rxjs/add/observable/of';
     moduleId: module.id + '',
     templateUrl: 'verdict.component.html'
 })
-export class VerdictComponent implements OnInit {
+export class VerdictComponent implements OnInit, OnDestroy {
     
     noOfProducts: number;
     noOfProductsPreRef: number;
@@ -25,12 +25,12 @@ export class VerdictComponent implements OnInit {
     ngOnInit():void {
         let countryId: string;
         let amount: number;
-        this.sub = this.route
-        .params
-        .subscribe(params => {
-            amount = +params['amount'];
-            countryId = params['countryId'];
-        });
+        //this.sub = this.route
+        //.params
+        //.subscribe(params => {
+            amount = +this.route.snapshot.params['amount'];
+            countryId = this.route.snapshot.params['countryId'];
+       // });
 
         let country: ICountry;
         this.verdictService.getVerdict(countryId).subscribe(c => {
@@ -51,5 +51,9 @@ export class VerdictComponent implements OnInit {
         {
             this.productName = country.localProduct.namePlural;
         }
+    }
+
+    ngOnDestroy() {
+        this.sub.unsubscribe();
     }
 }

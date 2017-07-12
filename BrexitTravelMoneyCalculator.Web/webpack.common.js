@@ -67,7 +67,8 @@ module.exports = {
     // }),
 
     new HtmlWebpackPlugin({
-      template: 'scripts/app/index.html'
+     //   template: 'scripts/app/index.html'
+        template: 'Views/Home/Index.cshtml'
     }),
 
     new CleanWebpackPlugin(['./wwwroot/']),
