@@ -44,16 +44,18 @@ namespace BrexitTravelMoneyCalculator.Web.Data
 
             return new 
             {
-                Country = new
+                Name = country.Name,
+                Currency = new
                 {
-                    Name = country.Name,
-                    Currency = new
-                    {
-                        Code = currency.Code,
-                        PreRefExchangeRate = currency.PreRefExchangeRate,
-                        ExchangeRate = currency.ExchangeRate
-                    },
-                    LocalProduct = country.LocalProduct
+                    Code = currency.Code,
+                    PreRefExchangeRate = currency.PreRefExchangeRate,
+                    ExchangeRate = currency.ExchangeRate
+                },
+                LocalProduct = new 
+                {
+                    NameSingular = country.LocalProduct.NameSingular,
+                    NamePlural = country.LocalProduct.NamePlural,
+                    Price = country.LocalProduct.Price
                 }
             };
         }

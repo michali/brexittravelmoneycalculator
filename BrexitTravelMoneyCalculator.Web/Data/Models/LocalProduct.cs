@@ -3,10 +3,10 @@ namespace BrexitTravelMoneyCalculator.Web.Data.Models
 {
     public class LocalProduct
     {
-        [JsonProperty(PropertyName = "nameSingular")]
+        [JsonProperty(PropertyName = "name_singular")]
         public string NameSingular { get; set; }
 
-        [JsonProperty(PropertyName = "namePlural")]
+        [JsonProperty(PropertyName = "name_plural")]
         public string NamePlural { get; set; }
 
         [JsonProperty(PropertyName = "price")]
