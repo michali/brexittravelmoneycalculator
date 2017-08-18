@@ -20,29 +20,40 @@ export class VerdictComponent implements OnInit {
     currencyCode: string;
     private sub: any;   
     errorMessage: string;
-    constructor(private route:ActivatedRoute, private verdictService:VerdictService){}
+    constructor(private route: ActivatedRoute, private verdictService: VerdictService) {}
 
-    ngOnInit():void {
-        let countryId = this.route.snapshot.queryParams['countryId'];
-        let amount = +this.route.snapshot.queryParams['amount'];
+    ngOnInit(): void {
+        let countryId: string;
+        let amount: number;
 
-        let country: ICountry;
+        this.sub = this.route
+            .queryParams
+            .subscribe(params => {
+                amount = +params['amount'];
+                countryId = params['countryId'];
+            });
+
         this.verdictService.getVerdict(countryId).subscribe(c => {
-            country = c;
+            this.calculatePrices(c, amount);
         },
-        error => this.errorMessage = <any>error);
+        error => this.errorMessage = <any>error);        
+    }
+
+    ngOnDestroy(): void {
+        this.sub.unsubscribe();
+    }
+
+    private calculatePrices(country: ICountry, amount:number) : void {
         this.noOfProductsPreRef = Math.floor((amount * country.currency.preRefExchangeRate) / country.localProduct.price);
         let noOfProductsPostRef = Math.floor((amount * country.currency.exchangeRate) / country.localProduct.price);
         this.noOfProducts = this.noOfProductsPreRef - noOfProductsPostRef;
         this.preRefExchangeRate = country.currency.preRefExchangeRate;
         this.currencyCode = country.currency.code;
         this.exchangeRate = country.currency.exchangeRate;
-        if (this.noOfProducts === 1)
-        {
+        if (this.noOfProducts === 1) {
             this.productName = country.localProduct.nameSingular;
         }
-        else
-        {
+        else {
             this.productName = country.localProduct.namePlural;
         }
     }
