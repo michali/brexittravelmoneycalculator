@@ -68,7 +68,8 @@ module.exports = {
 
     new HtmlWebpackPlugin({
      //   template: 'scripts/app/index.html'
-        template: 'Views/Home/Index.cshtml'
+        template: 'Views/Home/Index.cshtml',
+        chunksSortMode: packageSort(['polyfills', 'vendor', 'app', 'styles'])
     }),
 
     new CleanWebpackPlugin(['./wwwroot/']),
@@ -79,4 +80,21 @@ module.exports = {
         jquery: 'jquery'
     })
   ]
+};
+
+function packageSort(packages) {
+    return function sort(left, right) {
+        var leftIndex = packages.indexOf(left.names[0]);
+        var rightindex = packages.indexOf(right.names[0]);
+
+        if (leftIndex < 0 || rightindex < 0) {
+            throw "unknown package";
+        }
+
+        if (leftIndex > rightindex) {
+            return 1;
+        }
+
+        return -1;
+    }
 };
