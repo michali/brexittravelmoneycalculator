@@ -10,7 +10,7 @@
           Amount is required
         </div>
     </div>
-    <div *ngIf="countries && countries.length" class="form-group">
+    <div *ngIf="countries && countries.length; else loading_countries" class="form-group">
         <label for="countryId">Where are you going to?</label>
         <select class="form-control" [(ngModel)]="selectedCountryValue" 
         id="countryId" name="countryId" #country="ngModel" ddInvalidValue="-1">
@@ -20,5 +20,13 @@
           Country is required
         </div>
     </div>
+    <ng-template #loading_countries>
+        <label for="countryId">Where are you going to?</label>
+        <div class="form-group">
+            <select class="form-control" disabled>
+                <option>Loading countries...</option>
+            </select>
+        </div>
+    </ng-template>
     <button type="submit" class="btn btn-default" [disabled]="!f.form.valid">Show me</button>
 </form>
