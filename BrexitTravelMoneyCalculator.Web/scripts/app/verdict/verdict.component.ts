@@ -8,7 +8,8 @@ import 'rxjs/add/observable/of';
 
 @Component({
     moduleId: module.id + '',
-    templateUrl: 'verdict.component.html'
+    templateUrl: 'verdict.component.html',
+    styleUrls: ['verdict.component.css']
 })
 export class VerdictComponent implements OnInit {
     
@@ -23,6 +24,7 @@ export class VerdictComponent implements OnInit {
     constructor(private route: ActivatedRoute, private verdictService: VerdictService) {}
 
     ngOnInit(): void {
+
         let countryId: string;
         let amount: number;
 
