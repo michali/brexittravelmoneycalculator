@@ -11,11 +11,14 @@ export class XrCollectComponent implements OnInit {
 
     countries: ICountry[]
     selectedCountryValue: string = "-1";
+    loadingMessage: string = "Loading countries...";
     errorMessage: string;
+    private loadTimeoutSeconds: number = 8;
 
     constructor(private _router: Router, private _countriesService: CountriesService) { }
 
     ngOnInit(): void {
+        setTimeout(() => { this.loadingMessage = "Still loading... please wait."; }, this.loadTimeoutSeconds * 1000);
         var prompt : ICountry = {
             id: "-1",
                     name: "Please select a country",
