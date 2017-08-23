@@ -6,6 +6,7 @@ namespace BrexitTravelMoneyCalculator.Web.Api
 {
     [Route("api/[controller]")]
     [Produces("application/json")]
+    [ResponseCache(Duration = 10000)]
     public class CountriesController : Controller
     {
         private IDataService dataService;
@@ -15,7 +16,7 @@ namespace BrexitTravelMoneyCalculator.Web.Api
             this.dataService = dataService;
         }
         
-        [HttpGet]
+        [HttpGet]        
         public IActionResult Get()
         {
             var countries = dataService.GetCountries();

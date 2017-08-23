@@ -28,6 +28,7 @@ namespace BrexitTravelMoneyCalculatorWeb
         {
             // Add framework services.
             services.AddMvc();
+            services.AddResponseCaching();
             services.AddTransient<IDataService, AzureDocumentDbService>();
         }
 
