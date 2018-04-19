@@ -8,7 +8,7 @@ import { ICountry } from "./country";
 
 @Injectable()
 export class VerdictService {
-    private _countryUrl = 'http://localhost:5000/api/verdict?countryId=';
+    private _countryUrl = '/api/verdict?countryId=';
 
     constructor(private _http: Http) {}
 

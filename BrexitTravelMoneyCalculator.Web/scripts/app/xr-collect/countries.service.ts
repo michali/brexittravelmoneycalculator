@@ -9,7 +9,7 @@ import { ICountry } from './country';
 
 @Injectable()
 export class CountriesService {
-    private _countryUrl = 'http://localhost:5000/api/countries';
+    private _countryUrl = '/api/countries';
 
     constructor(private _http: Http) {}
 
