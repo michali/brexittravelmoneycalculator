@@ -27,6 +27,7 @@ namespace BrexitTravelMoneyCalculatorWeb
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            services.AddCors();
             services.AddMvc();
             services.AddResponseCaching();
             services.AddTransient<IDataService, AzureDocumentDbService>();
@@ -48,14 +49,16 @@ namespace BrexitTravelMoneyCalculatorWeb
                 } 
             });
 
+            app.UseCors(builder => builder.WithOrigins("http://brexittmc.michalikons.com").WithOrigins("http://localhost:4200"));
+
             app.UseDefaultFiles();
             app.UseStaticFiles();
             
-            app.UseStaticFiles(new StaticFileOptions
-            {
-                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "node_modules")),
-                RequestPath = "/node_modules"
-            });
+            //app.UseStaticFiles(new StaticFileOptions
+            //{
+            //    FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "node_modules")),
+            //    RequestPath = "/node_modules"
+            //});
 
             app.UseMvc(routes =>
             {
