@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BrexitTravelMoneyCalculator.Web.Data.Models;
 using Microsoft.Azure.Documents.Client;
+using Microsoft.Extensions.Configuration;
 
 namespace BrexitTravelMoneyCalculator.Web.Data
 {
@@ -11,9 +12,9 @@ namespace BrexitTravelMoneyCalculator.Web.Data
         private readonly Conf conf;
         private readonly DocumentClient client;
 
-        public AzureDocumentDbService()
+        public AzureDocumentDbService(IConfiguration configuration)
         {
-            conf = new Conf();
+            conf = new Conf(configuration);
             client = new DocumentClient(new Uri(conf.GetEndpointUri()), conf.GetPrimaryKey());
         }
         public IEnumerable<Country> GetCountries()

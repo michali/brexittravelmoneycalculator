@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrexitTravelMoneyCalculator.Web", "BrexitTravelMoneyCalculator.Web.csproj", "{2CECDF9B-06B9-4304-9FFE-2FCE56611037}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrexitTravelMoneyCalculator.Web", "BrexitTravelMoneyCalculator.Web.csproj", "{FDEDCC18-AF2A-4402-9716-1660B1C2EE1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2CECDF9B-06B9-4304-9FFE-2FCE56611037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2CECDF9B-06B9-4304-9FFE-2FCE56611037}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2CECDF9B-06B9-4304-9FFE-2FCE56611037}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2CECDF9B-06B9-4304-9FFE-2FCE56611037}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDEDCC18-AF2A-4402-9716-1660B1C2EE1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDEDCC18-AF2A-4402-9716-1660B1C2EE1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDEDCC18-AF2A-4402-9716-1660B1C2EE1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDEDCC18-AF2A-4402-9716-1660B1C2EE1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {8BBBD90C-1787-41FA-BFAA-99FE0645653A}
+		SolutionGuid = {99FB2506-11CB-4297-AA2A-78CB14493269}
 	EndGlobalSection
 EndGlobal

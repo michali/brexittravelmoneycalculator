@@ -6,35 +6,31 @@ namespace BrexitTravelMoneyCalculator.Web
 {
     internal class Conf
     {
-        private IConfigurationRoot configuration;
+        public IConfiguration Configuration { get; }
 
-        internal Conf()
+        internal Conf(IConfiguration configuration)
         {
-            var builder = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json");
-
-            configuration = builder.Build();
+            Configuration = configuration;
         }
 
         internal string GetEndpointUri()
         {
-            return configuration["DatabaseConnection:endpointUri"];
+            return Configuration["DatabaseConnection:endpointUri"];
         }
 
         internal string GetPrimaryKey()
         {
-            return configuration["DatabaseConnection:key"];
+            return Configuration["DatabaseConnection:key"];
         }
 
         internal string GetDatabaseName()
         {
-            return configuration["DatabaseConnection:databaseName"];
+            return Configuration["DatabaseConnection:databaseName"];
         }
 
         internal string GetCollectionName()
         {
-            return configuration["DatabaseConnection:collectionName"];
+            return Configuration["DatabaseConnection:collectionName"];
         }
     }
 }
